@@ -1,0 +1,122 @@
+.desktop {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .desktop .div {
+    background-color: #ffffff;
+    height: 1024px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .desktop .overlap-group {
+    background-image: url(./../images/logofinal.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 711px;
+    left: 0px;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .desktop .button-open-links {
+    
+    left: 80px;
+    position: 'relative';
+    top: 608px;
+    border-radius: 20px;
+    height: 25px;
+    background-color:  rgb(255, 149, 92);
+    border-color: rgb(255, 149, 92);
+    box-shadow: rgb(255, 149, 92);
+  }
+  .desktop .button-open-links_1 {
+    
+    left: 0px;
+    position: 'absolute';
+    top: 0px;
+    border-radius: 20px;
+    height: 25px;
+    background-color:  rgb(255, 149, 92);
+    border-color: rgb(255, 149, 92);
+    box-shadow: rgb(255, 149, 92);
+  }
+  
+  .desktop .img {
+    left: 80px;
+    position: 'relative';
+    top: 610px;
+    border-radius: 25px;
+    height: 20px;
+  }
+  
+  .desktop .button-open-links-2 {
+    height: 55px;
+    left: 1058px;
+    position: absolute;
+    top: 608px;
+    width: 152px;
+  }
+  
+  .desktop .overlap {
+    height: 231px;
+    left: 137px;
+    position: absolute;
+    top: 746px;
+    width: 1165px;
+  }
+  
+  .desktop .step-into-a-world-of {
+    color: #000000;
+    font-family: "IM FELL Great Primer SC-Regular", Helvetica;
+    font-size: 45px;
+    font-weight: 400;
+    height: 231px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 1165px;
+  }
+  
+  .desktop .text-wrapper {
+    color: #000000;
+    font-family: "IM FELL Great Primer SC-Regular", Helvetica;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  
+  .desktop .span {
+    font-size: 30px;
+  }
+  
+  .desktop .text-wrapper-2 {
+    color: #000000;
+    font-family: "IM FELL Great Primer SC-Regular", Helvetica;
+    font-size: 45px;
+    font-weight: 400;
+    height: 86px;
+    left: 290px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 585px;
+  }
+
+.abc{
+  position: relative;
+  right:160px;
+  width: 1480px;
+}
+
+  

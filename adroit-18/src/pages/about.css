@@ -1,0 +1,55 @@
+.main{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.main .total{
+    background-color: #ffffff;
+    height: 1024px;
+    position: relative;
+    width: 1440px;
+}
+
+.main .overlap-group {
+    background-image: url(./../../public/about_ma.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 711px;
+    right: 40px;
+    position: relative;
+    top: 100;
+    width: 1530px;
+  }
+
+.main .overlap_2{
+    background-image: url(./../../public/artisan.png);
+    position: relative;
+    background-size: cover;
+    height: 711px;
+    right: 40px;
+    top: 0px;
+    width: 1530px;
+
+}
+
+.head{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    padding-top: 150px;
+}
+.txt{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.txt2{
+    padding-top: 80px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+}
