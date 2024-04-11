@@ -1,9 +1,32 @@
 /* Three image containers (use 25% for four, and 50% for two, etc) */
+
+body {
+  background-color: MediumSeaGreen;
+  background-size: cover; /* Cover the entire viewport */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  background-position: center center; /* Center the background image */
+}
 .column {
     float: left;
     width: 33.33%;
     padding: 5px;
   }
+
+  @keyframes moveImage {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .helloimage {
+    width: 1550px; /* Adjust the width as needed */
+    animation: moveImage 10s linear infinite; /* Adjust the duration and timing function as needed */
+  }
+  
+  
   
   /* Clear floats after image containers */
   .row::after {

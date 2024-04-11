@@ -1,0 +1,51 @@
+/* ProductCard.css */
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image-container {
+  height: 200px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 20px;
+}
+
+.product-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-price {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.view-details-link {
+  display: inline-block;
+  color: #007bff; /* Blue color for the link */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.view-details-link:hover {
+  color: #0056b3; /* Darker blue color on hover */
+}

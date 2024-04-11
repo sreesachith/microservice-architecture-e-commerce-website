@@ -1,0 +1,86 @@
+.product-detail-container {
+    padding: 20px;
+  }
+  
+  .product-detail {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .product-detail h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .product-detail h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .product-image-container {
+    text-align: center;
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    overflow: hidden; /* Ensure image does not exceed container size */
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .product-info {
+    margin-top: 20px;
+  }
+  
+  .product-price {
+    font-size: 18px;
+  }
+  
+  .loading-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust the height as needed */
+    font-size: 18px;
+  }
+  /* ProductDetail.css */
+
+/* Style for the Add to Cart button */
+.add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #218838; /* Darker green color on hover */
+  }
+  
+  /* Style for the cart icon */
+  .cart-icon {
+    width: 20px; /* Adjust icon size as needed */
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  /* Optional: Additional styles for the product detail container */
+  .product-detail-container {
+    margin-top: 20px;
+  }
+  
+  .loading-message {
+    font-size: 16px;
+    color: #333;
+  }
+  

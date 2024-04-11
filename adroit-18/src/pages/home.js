@@ -1,59 +1,42 @@
-import React from "react";
-import Header from "./../components/Header"
-import './home.css';
+// Home.js
+import React, { useState, useEffect } from "react";
+import Header from "./../components/Header";
+import ProductCard from "./../components/ProductCard";
 import { useNavigate } from "react-router-dom";
-export default function Home(){
-  const navigate = useNavigate()
-    return(
-        <div>
-        <div>
-            <Header/>
-        </div>
-         <div>
-         <img width='1550px' src="net.png" alt="net"></img>
-         </div>
-  <div class="row">
-  <div class="column">
-    <button onClick={() => navigate('info')}>
-    <img src="elephant.png" alt="Snow" width={'250px'}  />
-    <p>Rs.6570</p>
-    </button>
-  </div>
-  <div class="column">
-    <button>
-    <img src="mask.jpeg" alt="Forest" />
-    <p>Rs.4230</p>
-    </button>
-  </div>
-  <div class="column">
-    <button>
-    <img src="men.jpeg " alt="Mountains" />
-    <p>Rs.1000</p>
-    </button>
-  </div>
-</div>
 
-<div class="row">
-  <div class="column">
-    <button>
-    <img src="voodo.jpeg" alt="Snow"  />
-    <p>Rs.2799</p>
-    </button>
-  </div>
-  <div class="column">
-    <button>
-    <img src="couple.jpeg" alt="Forest" />
-    <p>Rs.2000</p>
-    </button>
-  </div>
-  <div class="column">
-    <button>
-    <img src="ganesha.jpeg " alt="Mountains" />
-    <p>Rs.499</p>
-    </button>
-  </div>
-</div>
-         </div>
-         
-    );
+const Home = () => {
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/products");
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
+      }
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
+  return (
+    <div>
+      <Header />
+      <img classname="helloimage" src="net.png" alt="net"></img>
+      
+      <div className="grid grid-cols-4 gap-4">
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
 };
+
+export default Home;

@@ -1,21 +1,24 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './ProductCard.css'; // Import CSS for styling
 
 const ProductCard = ({ product }) => {
-    return (
-        <div className="w-full border-[1px] px-2 py-4">
-            <div className="flex justify-between items-center"></div>
-            <div>
-                <img src={product.image} alt="Product image" />
-            </div>
-            <div>
-                <h2 className="font-titlefont text-base font-bold">
-                    {product.title}
-                </h2>
-                <p>${product.oldprice}</p>
-                <p>${product.price}</p>
-            </div>
-        </div>
-    );
+  const productUrl = `/ProductDetail?productName=${encodeURIComponent(product.name)}`;
+
+  return (
+    <div className="product-card">
+      <div className="product-image-container">
+        <img src={product.image} alt="ProductImage" className="product-image" />
+      </div>
+      <div className="product-details">
+        <h2 className="product-title">{product.name}</h2>
+        <p className="product-price">Rs.{product.price}</p>
+        <Link to={productUrl} className="view-details-link">
+          View Details
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default ProductCard;

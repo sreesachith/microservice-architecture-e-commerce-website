@@ -2,6 +2,9 @@ import React from 'react';
 import ProductCard from './ProductCard'; // Import the ProductCard component
 import Products from './Products'; // Import the array of products (assuming it's named Products)
 
+
+
+
 const Product = () => {
   return (
     <div className="max-w-screen-xl mx-auto py-10">
