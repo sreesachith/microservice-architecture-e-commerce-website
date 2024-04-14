@@ -23,11 +23,11 @@ export default function Desktop ()  {
           <img className="img" alt="Button open links" src="about.jpeg" />
           </button>
 
-          <button className="button-open-links_1" type="button" onClick={() => navigate('Signup')} >
-            Sign up
+          <button className="button-open-links_1" type="button" onClick={() => navigate('Register')} >
+          <img className="img" alt="Button open links" src="register.jpeg" />
           </button>
-          <button className="button-open-links_1" type="button" >
-            Login 
+          <button className="button-open-links_1" type="button" onClick={() => navigate("Login")}>
+          <img className="img" alt="Button open links" src="login.jpeg" />
           </button>
         </div>
         <div className="overlap">
