@@ -13,6 +13,7 @@ app.config['MONGO_URI'] = 'mongodb+srv://sirigowriharish:test123@ecommerce.z0fq9
 mongo = PyMongo(app)
 products_collection = mongo.db.channapatna
 cart=mongo.db.cart
+users_collection = mongo.db.users
 
 # Route to fetch all products
 @app.route('/api/products', methods=['GET'])
@@ -98,13 +99,48 @@ def get_cart_items():
         return jsonify(cart_items)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-  
+    
 
+@app.route('/api/register', methods=['POST'])
+def register():
+    data = request.json
+    name = data.get('name')
+    email = data.get('email')
+    password = data.get('password')
 
-    
-    
-    
-    
+    if not name or not email or not password:
+        return jsonify({'error': 'Name, email, and password are required'}), 400
+
+    existing_user = users_collection.find_one({'email': email})
+    if existing_user:
+        return jsonify({'error': 'User with this email already exists'}), 400
+
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    user_id = users_collection.insert_one({'name': name, 'email': email, 'password': hashed_password}).inserted_id
+
+    return jsonify({'message': 'User registered successfully', 'user_id': str(user_id)}), 201
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.json
+    email = data.get('email')
+    password = data.get('password')
+
+    if not email or not password:
+        return jsonify({'error': 'Email and password are required'}), 400
+
+    user = users_collection.find_one({'email': email})
+    if not user or not bcrypt.check_password_hash(user['password'], password):
+        return jsonify({'error': 'Invalid email or password'}), 401
+
+    return jsonify({'message': 'Login successful', 'user_id': str(user['_id'])}), 200
+
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    users = users_collection.find()
+    users = [json.loads(json_util.dumps(user)) for user in users]  # Convert ObjectId to string
+    return jsonify(users), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
+
