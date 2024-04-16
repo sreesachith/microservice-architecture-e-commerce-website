@@ -9,7 +9,7 @@ import Cart from './pages/Cart'
 import ProductDetail from './pages/ProductDetail';
 import Login from './pages/page'
 import Register from './pages/Regpage'
-
+import Payment from './pages/Payment'
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
       <Route path='about' element={<About/>}/>
       <Route path='home/info' element={<Info/>}/>
       <Route path='home/cart' element={<Cart/>}/>
+      <Route path='home/cart/payment' element={<Payment/>}/>
     </Routes>
     
     

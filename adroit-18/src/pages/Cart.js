@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../pages/Cart.css'; // Import CSS for styling
+import { useNavigate } from "react-router-dom";
 
-const CartPage = () => {
+
+export default function CartPage  ()  {
+  const navigate = useNavigate()
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -22,6 +25,7 @@ const CartPage = () => {
   }, []);
 
   return (
+    
     <div className="cart-page-container">
       <h1>Cart Page</h1>
       <div className="cart-items-container">
@@ -42,8 +46,13 @@ const CartPage = () => {
           <p>No items in the cart</p>
         )}
       </div>
+      <button className="button-open-links_1" type="button" onClick={() => navigate('Payment')} >
+    <img className="img" alt="Button open links" src="register.jpeg" />
+    </button>
     </div>
+    
   );
 };
 
-export default CartPage;
+ 
+
