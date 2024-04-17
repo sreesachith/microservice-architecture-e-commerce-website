@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./../components/Header"
+import Header from "./../components/Header.js";
 import './home.css';
 import { useNavigate } from "react-router-dom";
 export default function Home(){
