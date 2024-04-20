@@ -14,7 +14,7 @@ const ProductDetail = () => {
         throw new Error('Product name not available');
       }
       
-      const response = await fetch('http://127.0.0.1:5000/api/cart', {
+      const response = await fetch('http://127.0.0.1:8080/api/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
