@@ -63,84 +63,9 @@ def add_product():
         return jsonify({'message': 'Product added successfully', 'product_id': str(product_id)})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    
-# # Route to add a product to the cart
-# @app.route('/api/cart', methods=['POST'])
-# def add_to_cart():
-#     try:
-#         data = request.json
-#         # Validate incoming data
-#         if 'product_name' not in data:
-#             return jsonify({'error': 'Missing required fields'}), 400
 
-#         # Check if the product exists
-#         product = products_collection.find_one({'name': data['product_name']}, {'_id': 1})
-#         if not product:
-#             return jsonify({'error': 'Product not found'}), 404
-
-#         # Add the product to the cart
-#         cart_item = {
-#             'product_id': str(product['_id']),
-#             'name': data['product_name'],
-#             'image':data['product_image'],
-#             'quantity': 1  # Default quantity
-#         }
-#         cart.insert_one(cart_item)
-#         return jsonify({'message': 'Product added to cart successfully'})
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
-
-    
-    
-# @app.route('/api/cart', methods=['GET'])
-# def get_cart_items():
-#     try:
-#         cart_items = list(cart.find({}, {'_id': 0}))
-#         return jsonify(cart_items)
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
-    
-
-# @app.route('/api/register', methods=['POST'])
-# def register():
-#     data = request.json
-#     name = data.get('name')
-#     email = data.get('email')
-#     password = data.get('password')
-
-#     if not name or not email or not password:
-#         return jsonify({'error': 'Name, email, and password are required'}), 400
-
-#     existing_user = users_collection.find_one({'email': email})
-#     if existing_user:
-#         return jsonify({'error': 'User with this email already exists'}), 400
-
-#     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-#     user_id = users_collection.insert_one({'name': name, 'email': email, 'password': hashed_password}).inserted_id
-
-#     return jsonify({'message': 'User registered successfully', 'user_id': str(user_id)}), 201
-
-# @app.route('/api/login', methods=['POST'])
-# def login():
-#     data = request.json
-#     email = data.get('email')
-#     password = data.get('password')
-
-#     if not email or not password:
-#         return jsonify({'error': 'Email and password are required'}), 400
-
-#     user = users_collection.find_one({'email': email})
-#     if not user or not bcrypt.check_password_hash(user['password'], password):
-#         return jsonify({'error': 'Invalid email or password'}), 401
-
-#     return jsonify({'message': 'Login successful', 'user_id': str(user['_id'])}), 200
-
-# @app.route('/api/users', methods=['GET'])
-# def get_users():
-#     users = users_collection.find()
-#     users = [json.loads(json_util.dumps(user)) for user in users]  # Convert ObjectId to string
-#     return jsonify(users), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
