@@ -39,7 +39,7 @@ const ProductDetail = () => {
       try {
         if (productName) {
           const encodedProductName = encodeURIComponent(productName); // Encode product name
-          const response = await fetch(`http://127.0.0.1:5000/api/products/name/${encodedProductName}`);
+          const response = await fetch(`http://127.0.0.1:8080/api/products/name/${encodedProductName}`);
           if (!response.ok) {
             throw new Error('Failed to fetch product details');
           }
