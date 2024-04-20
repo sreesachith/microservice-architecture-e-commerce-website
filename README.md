@@ -1,5 +1,13 @@
 # microservice-architecture-e-commerce-website
 
+# running frontend seperately
+```
+cd adroit-18
+docker build -t reactapp .
+docker run -p 3000:3000 reactapp
+```
+Then open http://localhost:3000/
+
 # running payment backend seperately
 ```
 cd payment backend
