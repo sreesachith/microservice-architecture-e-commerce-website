@@ -1,6 +1,5 @@
-Flask==2.0.1
-Flask-PyMongo==2.3.0
-bson==0.5.10
-Flask-Cors==3.0.10
-requests==2.26.0
-numpy==1.21.0
+Flask
+flask_pymongo
+flask-cors
+
+
