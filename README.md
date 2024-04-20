@@ -8,6 +8,8 @@ docker run -p 3000:3000 reactapp
 ```
 Then open http://localhost:3000/
 
+MAKE SURE TO RUN BACKEND FIRST 
+
 # running payment backend seperately
 ```
 cd payment backend
