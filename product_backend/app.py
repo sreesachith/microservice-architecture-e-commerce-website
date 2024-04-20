@@ -63,6 +63,13 @@ def add_product():
         return jsonify({'message': 'Product added successfully', 'product_id': str(product_id)})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+@app.route('/api/cart', methods=['GET'])
+def get_cart_items():
+    try:
+        cart_items = list(cart.find({}, {'_id': 0}))
+        return jsonify(cart_items)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
