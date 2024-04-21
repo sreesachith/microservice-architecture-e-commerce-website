@@ -21,4 +21,4 @@ const payment_schema = mongoose.Schema(
     }
 );
 
-export const Payment = mongoose.model('payment',payment_schema);
+export const Payment = mongoose.model('payment',payment_schema); 

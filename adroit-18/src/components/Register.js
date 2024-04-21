@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Register() {
+function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -8,9 +8,10 @@ export default function Register() {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
+    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!name || !email || !password || !confirmPassword) {
             setError("All fields are required");
             return;
@@ -19,25 +20,28 @@ export default function Register() {
             setError('Passwords do not match');
             return;
         }
-
+    
         setIsLoading(true);
         try {
-            const response = await fetch('//127.0.0.1:5000/api/register', {
+            const response = await fetch('http://127.0.0.1:5555/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password })
             });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                console.log('User registered successfully:', data);
-                alert('Registration successful!');
-                // Redirect to the login page after successful registration
-                window.location.href = '/login'; // Assuming your login page route is '/login'
-            } else {
-                throw new Error(data.error || 'Registration failed. Please try again.');
+    
+            const data = await response.json(); // Parse JSON response in every case
+    
+            if (!response.ok) {
+                throw new Error(data.message || 'Registration failed. Please try again.');
             }
+    
+            console.log('User registered successfully:', data);
+            alert(data.message); // Show success message from server
+            setName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+            setError('');
         } catch (error) {
             console.error('Network or other error:', error);
             setError(error.message || 'An error occurred. Please try again.');
@@ -45,7 +49,9 @@ export default function Register() {
             setIsLoading(false);
         }
     };
+    
 
+    // Input change handlers
     const handleNameChange = (e) => setName(e.target.value);
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -98,3 +104,5 @@ export default function Register() {
         </div>
     );
 }
+
+export default Register;
