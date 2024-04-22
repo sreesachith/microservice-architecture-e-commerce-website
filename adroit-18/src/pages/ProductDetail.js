@@ -14,25 +14,27 @@ const ProductDetail = () => {
         throw new Error('Product name not available');
       }
       
-      const response = await fetch('http://127.0.0.1:8080/api/cart', {
+      
+      const response = await fetch('http://127.0.0.1:8081/api/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ product_name: product.name ,product_image: product.image}), // Sending product name in the payload
+        body: JSON.stringify({ product_name: product.name, product_image: product.image,product_price:product.price }), // Sending product name in the payload
       });
-
+  
       if (!response.ok) {
         const error = await response.json();
         throw new Error(error.error);
       }
       console.log('Product added to cart:', product);
-      const cartUrl = 'home/cart';
-      window.location.href = cartUrl;
+      // Redirect to the cart page
+      window.location.href = '/home/cart';
     } catch (error) {
       console.error('Error adding product to cart:', error);
     }
   };
+  
 
   useEffect(() => {
     const fetchProductDetails = async () => {
