@@ -21,6 +21,12 @@ Before doing this,run backend first to check if it's working by : python app.py
 If it doesn't work,make sure to create a python virtual environment and run flask in that
 ```
 cd product_backend
-docker build -t flask-app .
-docker run -p 8080:8080 flask-app
+docker build -t product_backend .
+docker run -p 8080:8080 product_backend
+```
+# running cart backend seperately
+```
+cd cart_backend
+docker build -t cart_backend .
+docker run -d -p 8081:8081 cart_backend
 ```
