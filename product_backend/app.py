@@ -3,16 +3,15 @@ from flask_pymongo import PyMongo
 from bson import ObjectId
 from flask_cors import CORS
 
-
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ["http://localhost:3000"]}})
 
+CORS(app)
 
 # MongoDB configuration
 app.config['MONGO_URI'] = 'mongodb+srv://sirigowriharish:test123@ecommerce.z0fq9y3.mongodb.net/ecommerce'
 mongo = PyMongo(app)
 products_collection = mongo.db.channapatna
-cart=mongo.db.cart
+cart = mongo.db.cart
 users_collection = mongo.db.users
 
 # Route to fetch all products
@@ -48,7 +47,6 @@ def get_product_by_name(product_name):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-    
 @app.route('/api/cart', methods=['POST'])
 def add_to_cart():
     try:
@@ -67,24 +65,22 @@ def add_to_cart():
         cart_item = {
             'product_id': str(product['_id']),
             'name': data['product_name'],
-            'image': data.get('product_image'),  # Use get method to safely access product_image
+            'image': data.get('product_image'),
+            'price': int(data['product_price']),  # Use get method to safely access product_image
             'quantity': 1  # Default quantity
         }
         cart.insert_one(cart_item)
         return jsonify({'message': 'Product added to cart successfully'})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    
-# @app.route('/api/cart', methods=['GET'])
-# def get_cart_items():
-#     try:
-#         cart_items = list(cart.find({}, {'_id': 0}))
-#         return jsonify(cart_items)
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
-    
+
+@app.route('/api/cart', methods=['GET'])
+def get_cart_items():
+    try:
+        cart_items = list(cart.find({}, {'_id': 0}))
+        return jsonify(cart_items)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
-
-
+    app.run(debug=True, host='0.0.0.0', port=8080)
