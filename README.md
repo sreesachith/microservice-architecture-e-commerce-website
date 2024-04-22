@@ -22,5 +22,5 @@ If it doesn't work,make sure to create a python virtual environment and run flas
 ```
 cd product_backend
 docker build -t flask-app .
-docker run -p 8080:5000 flask-app
+docker run -p 8080:8080 flask-app
 ```
