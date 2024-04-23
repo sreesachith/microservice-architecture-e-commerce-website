@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 function Register() {
     const [name, setName] = useState('');
@@ -7,7 +9,7 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-
+    const navigate = useNavigate()
     // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +25,7 @@ function Register() {
     
         setIsLoading(true);
         try {
-            const response = await fetch('http://127.0.0.1:5555/register', {
+            const response = await fetch('http://127.0.0.1:5000/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password })
@@ -42,6 +44,7 @@ function Register() {
             setPassword('');
             setConfirmPassword('');
             setError('');
+            navigate('home')
         } catch (error) {
             console.error('Network or other error:', error);
             setError(error.message || 'An error occurred. Please try again.');

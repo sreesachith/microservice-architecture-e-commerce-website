@@ -119,4 +119,16 @@
   width: 1480px;
 }
 
-  
+.paymentbutton {
+  background-color: #007bff; /* Blue background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  font-size: 16px; /* Font size */
+}
+
+.paymentbutton:hover {
+  background-color: #0056b3; /* Darker blue background color on hover */
+}

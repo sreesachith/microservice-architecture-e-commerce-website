@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Header from "./../components/Header";
 import ProductCard from "./../components/ProductCard";
 import { useNavigate } from "react-router-dom";
-
 const Home = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <img classname="helloimage" src="net.png" alt="net"></img>
+      <img className="helloimage" src="net.png" alt="net"></img>
       
       <div className="grid grid-cols-4 gap-4">
         {products.map((product) => (

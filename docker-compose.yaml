@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  service1:
+    build:
+      context: ./cart_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    # Add any additional configuration for service1
+  
+  service2:
+    build:
+      context: ./payment_backend
+      dockerfile: Dockerfile
+    ports:
+      - "5555:5555"
+    # Add any additional configuration for service2
+  
+  service3:
+    build:
+      context: ./product_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    # Add any additional configuration for service3
+  service4:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+  service5:
+    build:
+      context: ./adroit-18
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    

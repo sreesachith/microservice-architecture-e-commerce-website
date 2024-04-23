@@ -13,9 +13,7 @@ export default function Desktop ()  {
     <div className="desktop">
       <div className="div">
         <div className="overlap-group">
-          <button className="button-open-links" onClick={() => navigate('home')} >
-          <img className="img" alt="Button open links" src="home.jpeg" />
-          </button>
+
           <button className="button-open-links" type="button" onClick={() => scrollHandler(section)}>
           <img className="img" alt="Button open links" src="contact.jpeg" />
           </button>
