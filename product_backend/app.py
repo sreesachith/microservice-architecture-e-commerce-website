@@ -50,29 +50,32 @@ def get_product_by_name(product_name):
 @app.route('/api/cart', methods=['POST'])
 def add_to_cart():
     try:
-        print(request.json)  # Print the request JSON data for debugging
         data = request.json
         # Validate incoming data
-        if 'product_name' not in data:
+        if 'product_name' not in data or 'product_price' not in data:
             return jsonify({'error': 'Missing required fields'}), 400
 
         # Check if the product exists
         product = products_collection.find_one({'name': data['product_name']}, {'_id': 1})
         if not product:
             return jsonify({'error': 'Product not found'}), 404
-
+        
+        
         # Add the product to the cart
         cart_item = {
             'product_id': str(product['_id']),
             'name': data['product_name'],
+            'price': int(data['product_price']),
             'image': data.get('product_image'),
-            'price': int(data['product_price']),  # Use get method to safely access product_image
-            'quantity': 1  # Default quantity
+            'quantity': 1 , # Default quantity
+            
         }
+        
         cart.insert_one(cart_item)
         return jsonify({'message': 'Product added to cart successfully'})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 @app.route('/api/cart', methods=['GET'])
 def get_cart_items():
