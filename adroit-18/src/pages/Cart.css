@@ -1,52 +1,26 @@
-cart-page-container {
+.cart-page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.product-detail-container {
-  padding: 20px;
-}
-
 .cart-items-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .cart-item {
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 10px;
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
-
-.helloimage {
-  width: 1550px; /* Adjust the width as needed */
-  animation: moveImage 10s linear infinite; /* Adjust the duration and timing function as needed */
-}
-
 
 .product-image {
-  width: auto;
-  max-width: 100%; /* Limit the maximum width to prevent stretching */
-  height: auto;
-  border-radius: 5px;
-}
-
-
-
-.product-image-container {
-  text-align: center;
-  max-width: 300px; /* Adjust as needed */
-  height: auto;
-  overflow: hidden;
-}
-
-
-.cart-item-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+  width: 100%; /* Make image fill its container */
+  height: auto; /* Maintain aspect ratio */
+  border-top-left-radius: 5px; /* Apply border radius to top left and top right corners */
+  border-top-right-radius: 5px;
 }
 
 .cart-item-details {
@@ -63,8 +37,21 @@ cart-page-container {
   margin-bottom: 5px;
 }
 
+.cart-item-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-item-actions button {
+  color: red;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .total-sum {
   margin-top: 20px;
+  text-align: right;
 }
 
 .total-sum h3 {
