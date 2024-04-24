@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './Cart.css'; // Import CSS for styling
-import { useNavigate } from "react-router-dom";
-import "./style.css";
+import './Cart.css';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
-  const navigate = useNavigate()
+
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8081/api/cart');
+        
         if (!response.ok) {
           const errorMessage = `Failed to fetch cart items: ${response.status} ${response.statusText}`;
           throw new Error(errorMessage);
@@ -56,14 +55,21 @@ const CartPage = () => {
         {cartItems.length > 0 ? (
           cartItems.map((item, index) => (
             <div key={index} className="cart-item">
-              <div>
-                <img src={item.image} alt="ProductImage" width="auto" height="auto" />
+              <div className="product-image-container">
+              {/* <img src={`/Users/sirigowrih/Desktop/microservice-architecture-e-commerce-website/adroit-18/public/${item.image}`} className="product-image" alt={item.name} /> */}
+              <img src={`${process.env.PUBLIC_URL}/${item.image}`} className="product-image" alt={item.name} />
+
+              {console.log(item.image)}
               </div>
               <div className="cart-item-details">
                 <h3>{item.name}</h3>
                 <p>Price: Rs.{item.price}</p>
                 <p>Quantity: {item.quantity}</p>
-                <button style={{ color: 'red' }} onClick={() => handleDeleteCartItem(item.product_id)}>Delete</button>
+                <div className="cart-item-actions">
+                  <button style={{ color: 'red' }} onClick={() => handleDeleteCartItem(item.product_id)}>
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           ))
@@ -73,9 +79,6 @@ const CartPage = () => {
       </div>
       <div className="total-sum">
         <h3>Total: Rs.{totalSum}</h3>
-        <button className="paymentbutton" onClick={() => navigate('home/cart/payment')} >
-          Proceed to payment
-          </button>
       </div>
     </div>
   );
